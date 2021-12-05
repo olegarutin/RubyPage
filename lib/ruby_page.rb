@@ -8,7 +8,6 @@ class HtmlGenerator
   end
 
   def generate_html
-    p @filename
     File.open("#{@filename}.html", 'w') do |file|
       builder = Nokogiri::HTML::Builder.new do |doc|
         doc.html {
