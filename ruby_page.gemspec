@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'ruby_page'
-  s.version     = '1.1.10'
+  s.version     = '1.2.1'
   s.summary     = 'Ruby on the page!'
   s.description = 'Work with html and js from ruby.'
   s.authors     = ['Oleg Arutin']

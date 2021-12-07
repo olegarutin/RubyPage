@@ -10,13 +10,13 @@ class HtmlGenerator
   def generate_html
     File.open("#{@filename}.html", 'w') do |file|
       builder = Nokogiri::HTML::Builder.new do |doc|
-        doc.html {
-          doc.head {
+        doc.html do
+          doc.head do
             doc.meta(charset: 'utf-8')
             doc.title('RubyPage')
-          }
+          end
           doc.body(processed_content)
-        }
+        end
       end
 
       file.write(builder.to_html)
@@ -26,6 +26,6 @@ class HtmlGenerator
   private
 
   def processed_content
-    @bypass_html ? @content.gsub("<", "&lt;").gsub(">" "&gt;") : @content
+    @bypass_html ? @content.gsub('<', '&lt;').gsub('>','&gt;') : @content
   end
 end
