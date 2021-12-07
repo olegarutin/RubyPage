@@ -26,6 +26,6 @@ class HtmlGenerator
   private
 
   def processed_content
-    @bypass_html ? @content.gsub('<', '&lt;').gsub('>','&gt;') : @content
+    @bypass_html ? @content.gsub('<', '&lt;').gsub('>', '&gt;') : @content
   end
 end
