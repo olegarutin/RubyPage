@@ -15,7 +15,7 @@ class HtmlGenerator
             doc.meta(charset: 'utf-8')
             doc.title('RubyPage')
           end
-          doc.body(processed_content)
+          doc.body { processed_content(doc) }
         end
       end
 
@@ -25,7 +25,8 @@ class HtmlGenerator
 
   private
 
-  def processed_content
-    @bypass_html ? @content.gsub('<', '&lt;').gsub('>', '&gt;') : @content
+  def processed_content(doc)
+    @content.gsub!(/[<>]/, '') if bypass_html
+    @content.is_a?(Array) ? @content.each { |content| doc.p(content) } : doc.p(@content)
   end
 end
